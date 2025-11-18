@@ -3,7 +3,7 @@ import "./Login.css";
 import { FcGoogle } from "react-icons/fc";
 import { FaApple } from "react-icons/fa";
 
-function Login() {
+function Login({ onLogin }) {
   const [tab, setTab] = useState("login");
   const [loginData, setLoginData] = useState({ email: "", password: "", remember: false });
   const [signupData, setSignupData] = useState({
@@ -31,18 +31,17 @@ function Login() {
   const handleLogin = (e) => {
     e.preventDefault();
     alert("Demo Mode: Login successful!");
-    // TODO: Navigate to dashboard
+    if (onLogin) onLogin();
   };
 
   const handleSignup = (e) => {
     e.preventDefault();
     alert("Demo Mode: Account created!");
-    // TODO: Navigate to dashboard
+    if (onLogin) onLogin();
   };
 
   return (
     <div className="auth-container">
-      {/* Dollar logo centered above headings */}
       <div className="auth-logo">
         <svg width="42" height="42" viewBox="0 0 24 24" fill="none">
           <rect width="24" height="24" rx="12" fill="url(#dollarGradient)" />
@@ -153,6 +152,7 @@ function Login() {
                   type="checkbox"
                   checked={signupData.agree}
                   onChange={handleSignupChange}
+                  required
                 />
                 I agree to the <a href="#">Terms of Service</a> and <a href="#">Privacy Policy</a>
               </label>

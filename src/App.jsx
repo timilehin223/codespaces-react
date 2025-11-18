@@ -1,13 +1,38 @@
-import { BrowserRouter, Routes, Route } from "react-router-dom";
+import React, { useState } from "react";
+import { BrowserRouter, Routes, Route, Navigate } from "react-router-dom";
 import Login from "./pages/login/Login";
-import './App.css';
+import Home from "./pages/home/Home";
 
 function App() {
+  // Demo-mode authentication state
+  const [isAuthenticated, setIsAuthenticated] = useState(false);
+
+  // Callback for login or signup success
+  const handleLoginSuccess = () => {
+    setIsAuthenticated(true);
+  };
+
   return (
     <BrowserRouter>
       <Routes>
-        <Route path="/" element={<Login />} />
-        {/* Add more routes below as needed */}
+        {/* Landing route: Login page unless authenticated */}
+        <Route
+          path="/"
+          element={
+            isAuthenticated
+              ? <Navigate to="/dashboard" />
+              : <Login onLogin={handleLoginSuccess} />
+          }
+        />
+        {/* Dashboard route: requires authentication */}
+        <Route
+          path="/dashboard"
+          element={
+            isAuthenticated
+              ? <Home />
+              : <Navigate to="/" />
+          }
+        />
       </Routes>
     </BrowserRouter>
   );
