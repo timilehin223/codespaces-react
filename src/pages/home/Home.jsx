@@ -43,7 +43,7 @@ function Home() {
       <nav className="dashboard-nav">
         <button>Home</button>
         <button>Transactions</button>
-        <button>Budgetts</button>
+        <button>Budgets</button>
         <button>Reports</button>
         <button>Settings</button>
       </nav>
