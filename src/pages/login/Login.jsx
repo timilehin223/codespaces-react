@@ -154,7 +154,7 @@ function Login({ onLogin }) {
                   onChange={handleSignupChange}
                   required
                 />
-                I agree to the <a href="#">Terms of Service</a> and <a href="#">Privacy Policy</a>
+                I agree tto the <a href="#">Terms of Service</a> and <a href="#">Privacy Policy</a>
               </label>
             </div>
             <button type="submit" className="auth-btn-primary">Create Account</button>
