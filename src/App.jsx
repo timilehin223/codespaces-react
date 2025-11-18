@@ -7,7 +7,7 @@ function App() {
   // Demo-mode authentication state
   const [isAuthenticated, setIsAuthenticated] = useState(false);
 
-  // Callback for login or signup success
+  // Callback for login or signup success.
   const handleLoginSuccess = () => {
     setIsAuthenticated(true);
   };
